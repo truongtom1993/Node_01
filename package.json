@@ -10,7 +10,8 @@
 		"watch": "webpack --watch",
 		"serve": "webpack serve",
 		"build:production": "cross-env NODE_ENV=production webpack",
-		"build:development": "cross-env NODE_ENV=development webpack-dev-server "
+		"build:development": "cross-env NODE_ENV=development webpack-dev-server",
+		"build:test": "cross-env NODE_ENV=development webpack-dev-server"
 	},
 	"author": "truongdn2@fsoft.com.vn",
 	"license": "ISC",

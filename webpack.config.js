@@ -19,11 +19,11 @@ const config = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './src/client/index.html',
+			template: './src/client/views/index.html',
 			favicon: './src/client/assets/logo.svg',
 		}),
 		new HtmlWebpackPlugin({
-			template: './src/client/pages/blog_post.html',
+			template: './src/client/views/blog_post.html',
 			filename: 'pages/blog_post.html',
 			favicon: './src/client/assets/logo.svg',
 		}),
