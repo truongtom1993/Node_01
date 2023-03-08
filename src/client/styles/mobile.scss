@@ -1,0 +1,258 @@
+
+:root {
+	--color-primary: #024ca9;
+	--color-second: #9e3b14;
+	--color-third: #0282a9;
+	--color-strong: #444444;
+	--color-em: #a33636;
+	--color-underline: #289740;
+}
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+}
+strong {
+	color: var(--color-strong);
+}
+em {
+	color: var(--color-em);
+}
+u {
+	color: var(--color-underline);
+}
+a {
+	color: var(--color-primary);
+}
+header {
+	align-items: center;
+	backdrop-filter: blur(10px);
+	background-color: #fff;
+	box-shadow: 0 4px 20px -2px rgba(128, 128, 128, 0.199);
+	display: flex;
+	height: 60px;
+	justify-content: space-between;
+	left: 0;
+	padding-right: 20px;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+.header_left {
+	align-items: center;
+	display: flex;
+}
+
+#logo_header {
+	height: 40px;
+	margin-left: 30px;
+	width: 40px;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navlink_header {
+	align-items: center;
+	display: flex;
+	list-style-type: none;
+	padding-left: 20px;
+}
+.navlink_header li a {
+	color: gray;
+	margin-right: 10px;
+	text-decoration: none;
+}
+.navlink_header li a.active {
+	border: 2px solid #ccc;
+	border-radius: 6px;
+	padding: 5px 10px;
+	font-weight: 700;
+}
+.navlink_header li a:hover {
+	color: rgb(105, 105, 105);
+}
+.header_right {
+	align-items: center;
+	display: none;
+}
+#search_header {
+	border: 1px solid #eee;
+	border-radius: 4px;
+	color: var(--color-primary);
+	margin-right: 10px;
+	outline: none;
+	padding: 6px;
+}
+#search_header:focus{
+	border: 2px solid #aaa;
+}
+#search_button {
+	padding: 8px 16px;
+	background: transparent;
+	border-radius: 6px;
+	border: 1px solid #eee;
+	cursor: pointer;
+}
+#banner {
+	height: 300px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+.main_homepage_cards {
+	display: grid;
+	grid-auto-rows: minmax(340px, max-content);
+	grid-row-gap: 30px;
+	grid-template-columns: auto;
+}
+.card_homepage {
+	border-radius: 6px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+.card_image {
+	max-height: 210px;
+	width: 100%;
+}
+.card_header {
+	display: flex;
+	flex-direction: column;
+}
+
+.card_header_right {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-left: 0px;
+}
+.card_header_right h2 {
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	font-size: 24px;
+	-webkit-line-clamp: 2;
+	margin-top: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-word;
+}
+.card_header_right_detail {
+	display: flex;
+	grid-column-gap: 10px;
+	margin-top: auto;
+}
+.main_homepage {
+	display: grid;
+	flex-grow: 1;
+	grid-template-columns: auto;
+	margin-bottom: 20px;
+	padding: 0 4px;
+}
+.card_content {
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	flex-grow: 1;
+	-webkit-line-clamp: 3;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	overflow-y: hidden;
+	text-align: left;
+	text-overflow: ellipsis;
+	word-break: break-word;
+}
+.card_footer {
+	background-color: transparent;
+	border: 1px solid #eee;
+	border-radius: 6px;
+	display: flex;
+	justify-self: end;
+	margin-bottom: 16px;
+	width: max-content;
+}
+.card_footer:hover {
+	border: 1px solid #ccc;
+	cursor: pointer;
+	transition: 0.5s;
+}
+.continue_reading {
+	background-clip: text;
+	-webkit-background-clip: text;
+	background-image: linear-gradient(to right, #024ca9, green);
+	color: transparent;
+	font-weight: bold;
+	height: 100%;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.main_homepage_sidebar {
+	background-color: #eee;
+	display: none;
+}
+footer {
+	background-color: #cccccc5d;
+	border-top: 1px solid #eee;
+	display: flex;
+	height: 30px;
+	justify-content: center;
+	margin-top: auto;
+	padding-top: 10px;
+}
+.main_article {
+	display: grid;
+	grid-template-columns: auto;
+	column-gap: 10px;
+}
+.blog_main_content {
+	border: 1px solid #eee;
+	border-radius: 6px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+blockquote {
+	margin: 0;
+}
+
+blockquote p {
+	padding: 15px;
+	background: #eee;
+	border-radius: 5px;
+}
+
+blockquote p::before {
+	content: '\201C';
+}
+
+blockquote p::after {
+	content: '\201D';
+}
+.blog_title_header {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+.subcribe_container {
+	position: relative;
+}
+.subcribe {
+	position: absolute;
+	top: -32px;
+	left: 10px;
+}
+.blog_main_content {
+	padding-left: 10px;
+	padding-right: 10px;
+}

@@ -1,0 +1,31 @@
+@media (min-width: 1536px) {
+	.container {
+		max-width: 1536px;
+	}
+	.header_right {
+		display: flex;
+	}
+	.main_homepage {
+		grid-template-columns: auto 300px;
+	}
+	.main_homepage_cards {
+		grid-template-columns: auto auto;
+		grid-gap: 50px;
+	}
+	.main_homepage_sidebar {
+		display: flex;
+	}
+	.card_image {
+		width: 150px;
+		aspect-ratio: 1;
+	}
+	.card_header_right{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.main_article {
+		display: grid;
+		grid-template-columns: auto 350px;
+	}
+}

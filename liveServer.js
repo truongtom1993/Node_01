@@ -3,7 +3,7 @@ const liveServer = require('live-server');
 const rootDir = './dist';
 
 const options = {
-	port: 1300,
+	port: 8079,
 	root: rootDir,
 	open: true,
 };

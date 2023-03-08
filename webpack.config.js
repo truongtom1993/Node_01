@@ -1,31 +1,38 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const isProduction = process.env.NODE_ENV == 'production';
+const idDevelopment = (process.env.NODE_ENV = 'development');
 
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
-	entry: './src/index.js',
+	entry: './src/client/index.js',
+	devtool: 'source-map',
+	stats: 'verbose',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-	},
-	devServer: {
-		open: true,
-		host: 'localhost',
+		filename: '[name].bundle.js',
+		clean: isProduction ? true : false,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: 'index.html',
+			template: './src/client/index.html',
+			favicon: './src/client/assets/logo.svg',
 		}),
-
-		// Add your plugins here
-		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+		new HtmlWebpackPlugin({
+			template: './src/client/pages/blog_post.html',
+			filename: 'pages/blog_post.html',
+			favicon: './src/client/assets/logo.svg',
+		}),
 	],
 	module: {
 		rules: [
 			{
 				test: /\.(js|jsx)$/i,
+				exclude: /node_modules/,
 				loader: 'babel-loader',
 			},
 			{
@@ -38,9 +45,8 @@ const config = {
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
+				type: 'asset/resource',
 			},
-			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
 	},
 };
@@ -49,9 +55,20 @@ module.exports = () => {
 	if (isProduction) {
 		config.mode = 'production';
 		config.plugins.push(new MiniCssExtractPlugin());
-	} else {
+	} else if (idDevelopment) {
 		config.mode = 'development';
+		config.devServer = {
+			open: true,
+			host: 'localhost',
+		};
+		config.plugins.push(
+			new CleanWebpackPlugin({
+				dry: true,
+				verbose: true,
+				cleanStaleWebpackAssets: true,
+				protectWebpackAssets: false,
+			}),
+		);
 	}
 	return config;
 };
-
