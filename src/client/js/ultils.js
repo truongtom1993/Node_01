@@ -23,7 +23,8 @@ function calculateDifferent(date) {
 }
 
 function renderResult(mainHomepageCards, location, datetime, nation, weather, temp, previewURL, pixaDataImages) {
-	mainHomepageCards.appendChild(createCardHomepage(location, datetime.format('DD - MMMM - YYYY'), nation, weather, temp, previewURL, pixaDataImages));
+	const cardHomepage = createCardHomepage(location, datetime.format('DD - MMMM - YYYY'), nation, weather, temp, previewURL, pixaDataImages);
+	mainHomepageCards.appendChild(cardHomepage);
 }
 
 function createCardHomepage(
@@ -82,32 +83,23 @@ function isShowGridPics(show, listImage) {
 		background.appendChild(row);
 
 		if (listImage.length > 0) {
-			let count = 0;
+			const listImageLength = listImage.length;
+			const number = 3;
 			let content = '';
-			for (let index = 0; index < listImage.length; index++) {
-				if (count < 3) {
-					content += `<img src="${listImage[index]}" alt="Image-${index}">`;
-					++count;
-					continue
-				} else if (count === 3) {
-					console.info(`🎁 src/client/js/ultils.js	Line:92	ID:946f7c`, content);
-
-					const column = document.createElement('div');
-
-					column.classList.add('column');
-					column.innerHTML = content;
-					content = '';
-					count = 0;
-
-					row.appendChild(column);
+			for (let index = 0; index < listImageLength; index += number) {
+				for (let i = index; i < number + index; i++) {
+					if (i === listImageLength) {
+						break;
+					}
+					content += `<img src="${listImage[i]}" alt="Image-${i}">`;
 				}
-			}
-			if (listImage.length <= 2) {
 				const column = document.createElement('div');
 				column.classList.add('column');
 				column.innerHTML = content;
 				row.appendChild(column);
+				content = '';
 			}
+
 			gridPics.addEventListener(`wheel`, event => {
 				event.preventDefault();
 			});

@@ -28,15 +28,6 @@ form.addEventListener(`submit`, event => {
 	const formData = getData(event.target);
 	const location = formData.get('location');
 	const date = formData.get('date');
-	isShowGridPics(true, [
-		'https://via.placeholder.com/300.webp/C5C5C5/FFFFFF/?text=Image',
-		'https://via.placeholder.com/300.webp/C5C5C5/FFFFFF/?text=Image',
-		'https://via.placeholder.com/300.webp/C5C5C5/FFFFFF/?text=Image',
-		'https://via.placeholder.com/300.webp/C5C5C5/FFFFFF/?text=Image',
-		'https://via.placeholder.com/300.webp/C5C5C5/FFFFFF/?text=Image',
-		'https://via.placeholder.com/300.webp/C5C5C5/FFFFFF/?text=Image',
-	]);
-	return;
 	if (!checkName(location) || !checkName(date)) {
 		return;
 	}
