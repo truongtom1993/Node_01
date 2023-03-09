@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest",
-		"start-server": "nodemon src/server/server.js",
+		"start-server": "cross-env NODE_ENV=development nodemon src/server/server.js",
 		"start-live-server": "node liveServer.js",
 		"watch": "webpack --watch",
 		"serve": "webpack serve",

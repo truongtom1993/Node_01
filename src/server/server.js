@@ -1,41 +1,55 @@
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
-const axios = require('axios').default;
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const { apiGeonames, apiPixabay } = require('./api');
 const app = express();
+const PORT = process.env.PORT;
 
-const options = {
-	key: '519de89339ef9bc76eef7bc1ecbd1d12',
-	lang: 'en',
-	model: 'general',
-	url: 'https://www.meaningcloud.com/',
-};
-function callAPI() {
-	const formdData = new FormData();
-	formdData.append('key', options.key);
-	formdData.append('lang', options.lang);
-	formdData.append('model', options.model);
-	formdData.append('url', options.url);
-	axios
-		.post('https://api.meaningcloud.com/sentiment-2.1', formdData)
-		.then(res => console.info(`🎁 index.js	Line:5	ID:748284`, res.data))
-		.catch(err => {
-			console.info(`🎁 index.js	Line:7	ID:71fccf`, err);
-		});
-}
+const API_KEY = process.env.API_KEY;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-
 app.use(express.static('dist'));
 
 app.get('/', (req, res) => {
 	res.sendFile('dist/index.html');
 });
 
-app.listen(8080, () => {
-	console.info(`🎁 src/server/server.js	Line:40	ID:1c72c8`);
+app.get('/geonames', (req, res) => {
+	const location = req.query.location;
+	const date = req.query?.date;
+	let countryName;
+	let lat;
+	let lon;
+	if (location && date) {
+		apiGeonames(location).then(respond => {
+			const geonames = respond.data?.geonames?.[0];
+			if (geonames) {
+				countryName = geonames.countryName;
+				lat = geonames.lat;
+				lon = geonames.lng;
+				res.status(200).json({ countryName, lat, lon, key: API_KEY });
+			} else {
+				res.sendStatus(500);
+			}
+		});
+	}
+});
+
+app.get('/pixabay', (req, res) => {
+	const location = req.query.location;
+	let number = req.query.number;
+	if (number < 3) {
+		number = 3;
+	}
+	apiPixabay(location, number).then(responsePixa => {
+		const data = responsePixa.data;
+		res.status(200).json(data.hits);
+	});
+});
+
+app.listen(PORT, () => {
+	// console.info(`🎁 src/server/server.js	Line:40	ID:1c72c8`, PORT);
 });
