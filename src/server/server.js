@@ -4,9 +4,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { apiGeonames, apiPixabay } = require('./api');
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 1800;
 
-const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY;
+const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY || "69c7e8330d45484fb8234f5b3c9955e9";
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

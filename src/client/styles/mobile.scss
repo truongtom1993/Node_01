@@ -372,7 +372,7 @@ blockquote p::after {
 	z-index: 9;
 	padding: 20px;
 }
-#_c3ac3d{
+#_c3ac3d {
 	padding: 10px;
 	border-radius: 4px;
 	background: white;
@@ -394,6 +394,9 @@ blockquote p::after {
 		width: 100%;
 	}
 }
-input[type=date]:hover{
+input[type='date']:hover {
 	cursor: pointer;
+}
+.hidden {
+	display: none !important;
 }
