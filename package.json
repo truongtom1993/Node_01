@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest",
+		"start": "cross-env NODE_ENV=production webpack && node src/server/server.js",
 		"start-server": "cross-env NODE_ENV=production nodemon src/server/server.js",
 		"start-live-server": "node liveServer.js",
 		"watch": "webpack --watch",

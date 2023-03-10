@@ -279,6 +279,7 @@ blockquote p::after {
 	gap: 30px;
 	margin: auto;
 	width: fit-content;
+	flex-direction: column;
 }
 #main_form {
 	label {

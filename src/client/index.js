@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', e => {
 		if (!checkName(location) || !checkName(date)) {
 			return;
 		}
-		const URLgeoname = `http://localhost:1800/geonames?location=${location}&date=${date}`;
+		const URLgeoname = `geonames?location=${location}&date=${date}`;
 		const diff = calculateDifferentFromNow(date);
 		const dateFormat = dayjs(date);
 		if (diff < 0) {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', e => {
 					const result = await resWeather.json();
 					dataWeather = result.data;
 					localData.dataWeather = dataWeather;
-					fetch(`http://localhost:1800/pixabay?location=${location}&number=7`).then(async resPixa => {
+					fetch(`pixabay?location=${location}&number=7`).then(async resPixa => {
 						const data = await resPixa.json();
 						if (data) {
 							pixaData = data;
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', e => {
 					const result = await resWeather.json();
 					const dataWeather = result.data;
 					localData.dataWeather = dataWeather;
-					fetch(`http://localhost:1800/pixabay?location=${location}&number=1`).then(async resPixa => {
+					fetch(`pixabay?location=${location}&number=1`).then(async resPixa => {
 						const data = await resPixa.json();
 						if (data) {
 							pixaData = data;
