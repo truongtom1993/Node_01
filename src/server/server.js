@@ -6,7 +6,7 @@ const { apiGeonames, apiPixabay } = require('./api');
 const app = express();
 const PORT = process.env.PORT;
 
-const API_KEY = process.env.API_KEY;
+const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,7 +30,7 @@ app.get('/geonames', (req, res) => {
 				countryName = geonames.countryName;
 				lat = geonames.lat;
 				lon = geonames.lng;
-				res.status(200).json({ countryName, lat, lon, key: API_KEY });
+				res.status(200).json({ countryName, lat, lon, key: WEATHERBIT_KEY });
 			} else {
 				res.sendStatus(500);
 			}
@@ -51,5 +51,5 @@ app.get('/pixabay', (req, res) => {
 });
 
 app.listen(PORT, () => {
-	// console.info(`🎁 src/server/server.js	Line:40	ID:1c72c8`, PORT);
+	console.info(`🎁 The server is listen in port:  `, PORT);
 });

@@ -99,7 +99,10 @@
 	.blog_main_content {
 		padding: 20px;
 	}
-}
-.grid_pics{
-	padding: 30px 100px;
+	.grid_pics {
+		padding: 30px 100px;
+	}
+	.column {
+		flex: 40%;
+	}
 }

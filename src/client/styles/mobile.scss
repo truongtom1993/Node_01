@@ -265,22 +265,22 @@ blockquote p::after {
 .flex-col {
 	flex-direction: column;
 }
-#_5572ca {
+#flex_form_container {
 	padding: 0 10px;
 }
-#_cb1ffd {
+#main_form {
 	background-color: #dfdfdf;
 	border-radius: 4px;
 	margin-bottom: 1rem;
 	padding: 20px;
 }
-#_dbcb7e {
+#flex_wrap_form {
 	// justify-content: space-between;
 	gap: 30px;
 	margin: auto;
 	width: fit-content;
 }
-#_cb1ffd {
+#main_form {
 	label {
 		font-weight: bold;
 	}
@@ -386,11 +386,14 @@ blockquote p::after {
 	padding: 0 4px;
 }
 .column {
-	flex: 40%;
+	flex: 100%;
 	padding: 0 4px;
 	img {
 		margin-top: 8px;
 		vertical-align: middle;
 		width: 100%;
 	}
+}
+input[type=date]:hover{
+	cursor: pointer;
 }

@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-const $ = document.querySelector.bind(document);
 
 function createElement(name, options) {
 	const element = document.createElement(name);
@@ -15,11 +14,14 @@ function createElement(name, options) {
 	}
 	return element;
 }
-function calculateDifferent(date) {
+function calculateDifferentFromNow(date) {
 	const now = dayjs();
 	const futureDate = dayjs(date);
 	const diff = futureDate.diff(now, 'd');
 	return diff;
+}
+function calculateDifferent(param1, param2) {
+	return param2 - param1;
 }
 
 function renderResult(mainHomepageCards, location, datetime, nation, weather, temp, previewURL, pixaDataImages) {
@@ -81,6 +83,7 @@ function isShowGridPics(show, listImage) {
 		const row = document.createElement(`div`);
 		row.className = 'row';
 		background.appendChild(row);
+		background.addEventListener('wheel', e => e.stopPropagation());
 
 		if (listImage.length > 0) {
 			const listImageLength = listImage.length;
@@ -117,4 +120,4 @@ function isShowGridPics(show, listImage) {
 	}
 }
 
-export { createElement, calculateDifferent, renderResult, createCardHomepage, isShowGridPics };
+export { createElement, calculateDifferentFromNow, renderResult, createCardHomepage, isShowGridPics, calculateDifferent };
