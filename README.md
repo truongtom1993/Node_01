@@ -14,15 +14,5 @@ The website also stores the information you previously filled in.
 ## How to run website:
 
 1. Run: npm install or npx pnpm install
-2. Create file .env.production and .env.development
-3. In .env.production and .env.development ,You need to Declare the fields below:
-
-- > WEATHERBIT_KEY= `your weatherbit API key`
-- > PIXABAY_KEY= `your Pixabay API key`
-- > ACCOUNNT_GEONAMES= `your geonames account`
-- > PORT=1800
-- > URL=localhost:1800
-
-4. Run: npm run build-production
-5. RUN: npm run start-server
-6. Open website in <localhost:1800/>
+2. Run: npm start
+3. Open website in <localhost:1800/>
