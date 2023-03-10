@@ -25,4 +25,4 @@ The website also stores the information you previously filled in.
 
 4. Run: npm run build-production
 5. RUN: npm run start-server
-6. Open website in [address](localhost:1800/)
+6. Open website in <localhost:1800/>
